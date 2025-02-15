@@ -6,56 +6,60 @@
     <title>Desigualdade Social e Como Resolver</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            overflow-x: hidden; /* Impede a rolagem lateral */
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow-x: hidden; /* Impede a rolagem horizontal */
+        }
+
         header {
             background: #333;
             color: #fff;
-            padding: 15px;
+            padding: 15px 20px;
             text-align: center;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .logo-senai {
-            display: block;
-            margin: 10px auto;
+
+        .logo {
             width: 120px;
+            margin: 10px 0;
         }
-        nav {
+
+        .header-buttons {
             margin-top: 10px;
         }
-        .button {
+
+        .header-buttons a {
             background-color: #007bff;
             color: white;
             padding: 10px 15px;
-            border: none;
-            cursor: pointer;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-weight: bold;
             display: inline-block;
-            margin-top: 10px;
         }
+
         section {
             padding: 20px;
             background: #fff;
             margin: 20px auto;
-            width: 90%;
-            max-width: 800px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
         }
+
         h2 {
             color: #333;
         }
-        p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -63,17 +67,59 @@
             color: #fff;
             width: 100%;
         }
+
+        .chart-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #chart_div {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: auto;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
     </style>
+
+    <!-- Carregando Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Grupo', 'Distribuição da Riqueza'],
+                ['Riqueza Alta', 20],
+                ['Riqueza Média', 30],
+                ['Riqueza Baixa', 50]
+            ]);
+
+            var options = {
+                title: 'Distribuição de Riqueza na Sociedade',
+                pieHole: 0.4,
+                colors: ['#007bff', '#ff9900', '#ff4444']
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 <body>
 
 <header>
     <h1>Desigualdade Social e Como Resolver</h1>
-    <img src="senai-logo.png" alt="SENAI" class="logo-senai">
-    <nav>
-        <span>By: Joaquim, Micael e Dhiego</span>
-    </nav>
-    <a href="como-ajudar.html" class="button">Como Ajudar?</a>
+    <img src="logo.png" alt="Logo SENAI" class="logo">
+    <p>By: Joaquim, Micael e Dhiego</p>
+    <div class="header-buttons">
+        <a href="como_ajudar.html">Como Ajudar?</a>
+    </div>
 </header>
 
 <section>
@@ -84,41 +130,39 @@
     </article>
     <article>
         <h3>Iniciativas para Reduzir a Desigualdade</h3>
-        <p>Governos e organizações buscam soluções para minimizar as diferenças econômicas...</p>
+        <p>A desigualdade social é um dos maiores problemas que enfrentamos hoje...</p>
     </article>
 </section>
 
 <section>
     <h2>Gráficos</h2>
     <p>Abaixo está um gráfico ilustrando a desigualdade social:</p>
-    <div id="chart_div"></div>
+    <div class="chart-container">
+        <div id="chart_div"></div>
+    </div>
 </section>
 
 <section>
     <h2>Mais artigos</h2>
     <article>
         <h3>Como a Educação Pode Reduzir a Desigualdade</h3>
-        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade...</p>
+        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade social...</p>
     </article>
     <article>
         <h3>O Papel das Políticas Públicas</h3>
-        <p>Medidas governamentais são fundamentais para a redução das desigualdades sociais...</p>
+        <p>As políticas públicas desempenham um papel crucial na redução da desigualdade social...</p>
     </article>
     <article>
         <h3>Desigualdade de Gênero e Seus Efeitos</h3>
-        <p>Mulheres enfrentam barreiras significativas no acesso à educação e emprego...</p>
+        <p>Mulheres em todo o mundo enfrentam barreiras significativas no acesso a oportunidades...</p>
     </article>
     <article>
         <h3>Impactos da Desigualdade na Saúde</h3>
-        <p>Falta de acesso a serviços médicos agrava problemas de saúde em comunidades carentes...</p>
+        <p>A desigualdade social tem um impacto direto na saúde das populações mais vulneráveis...</p>
     </article>
     <article>
-        <h3>O Crescimento Econômico e a Desigualdade</h3>
-        <p>Nem sempre o crescimento econômico resulta em uma distribuição justa de renda...</p>
-    </article>
-    <article>
-        <h3>A Tecnologia Pode Ajudar a Reduzir a Desigualdade?</h3>
-        <p>Avanços tecnológicos podem ser um caminho para oportunidades mais inclusivas...</p>
+        <h3>O Papel das Empresas na Redução da Desigualdade</h3>
+        <p>Empresas podem contribuir para uma sociedade mais justa ao oferecer salários justos...</p>
     </article>
 </section>
 
