@@ -6,74 +6,118 @@
     <title>Desigualdade Social e Como Resolver</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            overflow-x: hidden; 
         }
+
         header {
             background: #333;
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
+
         header h1 {
+            font-size: 1.5rem;
             margin: 0;
         }
+
         .logo {
-            width: 100px;
+            width: 80px;
         }
+
         nav {
-            margin: 20px;
+            font-size: 0.9rem;
         }
+
         section {
             padding: 20px;
             background: #fff;
-            margin: 20px;
-            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             color: #333;
+            font-size: 1.4rem;
         }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
+
+        article h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
         .chart-container {
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
+
         #chart_div {
-            margin-right: 20px;
+            width: 100%;
+            max-width: 400px;
         }
-        p {
-            line-height: 1.6; /* Aumenta o espaçamento entre linhas */
-            margin-bottom: 15px; /* Espaçamento entre parágrafos */
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+    
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-top: 10px;
+            }
+
+            section {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .chart-container {
+                flex-direction: column;
+            }
         }
     </style>
-    <!--Load the AJAX API-->
+    
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
-
-        // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
 
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
         function drawChart() {
-            // Create the data table.
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Categoria');
             data.addColumn('number', 'Porcentagem');
@@ -83,14 +127,13 @@
                 ['Riqueza Baixa', 50]
             ]);
 
-            // Set chart options
             var options = {
                 'title': 'Distribuição de Riqueza na Sociedade',
-                'width': 400,
-                'height': 300
+                'width': '100%',
+                'height': 300,
+                'legend': { position: 'bottom' }
             };
 
-            // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
@@ -110,48 +153,35 @@
     <h2>Últimas Notícias</h2>
     <article>
         <h3>Desigualdade Social Aumenta Durante a Pandemia</h3>
-        <p>A pandemia de COVID-19 exacerbou a desigualdade social em várias partes do mundo. Estudos mostram que as populações mais vulneráveis foram as mais afetadas. Segundo a Organização Internacional do Trabalho (OIT), a crise resultou em uma perda de 8,8% das horas de trabalho globalmente, o que equivale a 255 milhões de empregos. As mulheres e os trabalhadores informais foram os mais impactados, aumentando a disparidade entre os grupos sociais.</p>
+        <p>A pandemia de COVID-19 exacerbou a desigualdade social em várias partes do mundo. Estudos mostram que as populações mais vulneráveis foram as mais afetadas...</p>
     </article>
     <article>
         <h3>Iniciativas para Reduzir a Desigualdade</h3>
-        <p>A desigualdade social é um dos maiores problemas que enfrentamos hoje, e ela está presente de diferentes formas, como na disparidade de acesso à educação, saúde, renda e oportunidades. Isso cria um abismo entre os mais ricos e os mais pobres, que vai além de uma questão moral, afetando diretamente o desenvolvimento de toda a sociedade. Para diminuir essa desigualdade, é necessário que tanto o governo quanto nós, como cidadãos, tomemos ações concretas e comprometidas.</p>
-        <p>O governo, como principal responsável pelas políticas públicas, tem o poder de criar leis e programas que possam promover a inclusão social e uma distribuição mais justa dos recursos. Isso passa, primeiramente, pela educação. Garantir que todas as crianças e jovens, independentemente de sua origem ou classe social, tenham acesso a uma educação de qualidade é essencial para abrir portas e criar novas oportunidades. A educação é, sem dúvida, uma das formas mais eficazes de reduzir a desigualdade, pois permite que as pessoas desenvolvam seu potencial e tenham mais chances de ascender socialmente. Além disso, o governo deve investir em um sistema de saúde público que seja acessível para todos, porque saúde é um direito fundamental e sem ele, ninguém pode realmente se desenvolver ou prosperar. Também é necessário criar redes de proteção social, como programas de transferência de renda, para amparar os mais vulneráveis, ajudando-os a superar os momentos mais difíceis e a ter uma vida digna.</p>
-        <p>Porém, não podemos esperar que apenas o governo resolva tudo. A sociedade como um todo também tem um papel fundamental nessa luta. O que podemos fazer, como cidadãos, é nos engajar ativamente na busca por um mundo mais justo. Isso pode ser feito por meio de ações que promovam a inclusão, como apoiar iniciativas que ajudam pessoas em situação de vulnerabilidade ou até pressionar os governantes a tomarem decisões mais justas. Empresas também têm uma responsabilidade importante, principalmente quando se trata de oferecer empregos dignos, com salários justos e condições de trabalho adequadas. Quando todos se unem para exigir igualdade, seja por meio de manifestações, seja por meio de pequenas atitudes diárias, estamos ajudando a construir um ambiente mais equitativo para todos.</p>
-        <p>É claro que a mudança não acontece da noite para o dia. A desigualdade social é um problema complexo, que tem raízes profundas na história, na cultura e na economia de um país. Por isso, é fundamental que o compromisso com a justiça social seja contínuo, tanto do governo quanto da sociedade. Precisamos entender que a luta contra a desigualdade não é apenas uma responsabilidade do Estado, mas de todos nós. Só assim conseguiremos construir uma sociedade mais igualitária, onde todos tenham as mesmas chances e o futuro seja mais justo para todos.</p>
+        <p>A desigualdade social é um dos maiores problemas que enfrentamos hoje...</p>
     </article>
 </section>
 
 <section>
     <h2>Gráficos</h2>
-    <p>Abaixo estão alguns gráficos que ilustram a desigualdade social em diferentes regiões:</p>
+    <p>Abaixo está um gráfico ilustrando a desigualdade social:</p>
     <div class="chart-container">
-        <div id="chart_div">
-            <!-- O gráfico será renderizado aqui -->
-        </div>
+        <div id="chart_div"></div>
         <div>
-            <h3>Explicação do Gráfico</h3>
-            <p>O gráfico acima representa a distribuição de riqueza na sociedade, dividida em três categorias: Riqueza Alta, Riqueza Média e Riqueza Baixa. Os dados foram coletados de estudos recentes sobre desigualdade econômica, que mostram que 20% da população detém a maior parte da riqueza, enquanto 50% vive com recursos limitados. Essa disparidade é um reflexo das desigualdades estruturais que existem em nossa sociedade, exacerbadas por fatores como acesso desigual à educação e oportunidades de emprego.</p>
+            <h3>Explicação</h3>
+            <p>O gráfico representa a distribuição da riqueza na sociedade. Os 20% mais ricos concentram a maior parte, enquanto 50% da população vive com menos recursos...</p>
         </div>
     </div>
 </section>
 
 <section>
-    <h2>Mais artigos.</h2>
+    <h2>Mais artigos</h2>
     <article>
         <h3>Como a Educação Pode Reduzir a Desigualdade</h3>
-        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade social. Investir em educação de qualidade para todos é fundamental. De acordo com a UNESCO, cada ano adicional de escolaridade pode aumentar a renda de um indivíduo em até 10%. Além disso, a educação não apenas melhora as perspectivas econômicas, mas também promove a igualdade de gênero e a inclusão social. Programas de alfabetização e formação profissional são essenciais para capacitar comunidades marginalizadas e oferecer oportunidades de emprego.</p>
+        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade social...</p>
     </article>
     <article>
         <h3>O Papel das Políticas Públicas</h3>
-        <p>As políticas públicas desempenham um papel crucial na redução da desigualdade social, promovendo acesso a serviços essenciais e oportunidades de emprego. A implementação de políticas fiscais progressivas, que taxam mais os ricos e menos os pobres, pode ajudar a redistribuir a riqueza. Além disso, investimentos em saúde, educação e infraestrutura são fundamentais para criar um ambiente onde todos possam prosperar. A experiência de países nórdicos, que possuem altos níveis de igualdade social, demonstra que políticas bem estruturadas podem levar a uma sociedade mais justa e coesa.</p>
-    </article>
-    <article>
-        <h3>Desigualdade de Gênero e Seus Efeitos</h3>
-        <p>A desigualdade de gênero é uma das formas mais persistentes de desigualdade social. Mulheres em todo o mundo enfrentam barreiras significativas no acesso a educação, saúde e oportunidades de emprego. Segundo o Fórum Econômico Mundial, levará cerca de 135 anos para fechar a lacuna de gênero em termos de igualdade econômica. A promoção da igualdade de gênero não é apenas uma questão de justiça social, mas também um motor de crescimento econômico. Estudos mostram que a inclusão das mulheres na força de trabalho pode aumentar o PIB global em até 28 trilhões de dólares até 2025.</p>
-    </article>
-    <article>
-        <h3>Impactos da Desigualdade na Saúde</h3>
-        <p>A desigualdade social tem um impacto direto na saúde das populações. Pessoas em situação de vulnerabilidade têm maior probabilidade de sofrer de doenças crônicas, ter acesso limitado a cuidados de saúde e enfrentar uma expectativa de vida mais baixa. A Organização Mundial da Saúde (OMS) afirma que a desigualdade na saúde é uma questão de justiça social e que a redução das disparidades de saúde deve ser uma prioridade. Investimentos em saúde pública, acesso a serviços de saúde e programas de prevenção são essenciais para melhorar a saúde das populações mais afetadas pela desigualdade.</p>
+        <p>As políticas públicas desempenham um papel crucial na redução da desigualdade social...</p>
     </article>
 </section>
 
