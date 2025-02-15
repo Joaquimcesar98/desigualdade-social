@@ -6,182 +6,119 @@
     <title>Desigualdade Social e Como Resolver</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            overflow-x: hidden; 
+            overflow-x: hidden; /* Impede a rolagem lateral */
         }
-
         header {
             background: #333;
             color: #fff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+            padding: 15px;
+            text-align: center;
+            position: relative;
         }
-
-        header h1 {
-            font-size: 1.5rem;
-            margin: 0;
+        .logo-senai {
+            display: block;
+            margin: 10px auto;
+            width: 120px;
         }
-
-        .logo {
-            width: 80px;
-        }
-
         nav {
-            font-size: 0.9rem;
+            margin-top: 10px;
         }
-
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 10px;
+        }
         section {
             padding: 20px;
             background: #fff;
             margin: 20px auto;
-            max-width: 900px;
-            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         h2 {
             color: #333;
-            font-size: 1.4rem;
         }
-
         p {
             line-height: 1.6;
             margin-bottom: 15px;
-            font-size: 1rem;
         }
-
-        article h3 {
-            margin-top: 15px;
-            font-size: 1.2rem;
-        }
-
-        .chart-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        #chart_div {
-            width: 100%;
-            max-width: 400px;
-        }
-
         footer {
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             background: #333;
             color: #fff;
-            margin-top: 20px;
             width: 100%;
         }
-
-    
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .logo {
-                margin-top: 10px;
-            }
-
-            section {
-                margin: 10px;
-                padding: 15px;
-            }
-
-            .chart-container {
-                flex-direction: column;
-            }
-        }
     </style>
-    
-    
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Porcentagem');
-            data.addRows([
-                ['Riqueza Alta', 20],
-                ['Riqueza Média', 30],
-                ['Riqueza Baixa', 50]
-            ]);
-
-            var options = {
-                'title': 'Distribuição de Riqueza na Sociedade',
-                'width': '100%',
-                'height': 300,
-                'legend': { position: 'bottom' }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
-    </script>
 </head>
 <body>
 
 <header>
     <h1>Desigualdade Social e Como Resolver</h1>
-    <img src="logo.png" alt="Logo" class="logo">
+    <img src="senai-logo.png" alt="SENAI" class="logo-senai">
     <nav>
         <span>By: Joaquim, Micael e Dhiego</span>
     </nav>
+    <a href="como-ajudar.html" class="button">Como Ajudar?</a>
 </header>
 
 <section>
     <h2>Últimas Notícias</h2>
     <article>
         <h3>Desigualdade Social Aumenta Durante a Pandemia</h3>
-        <p>A pandemia de COVID-19 exacerbou a desigualdade social em várias partes do mundo. Estudos mostram que as populações mais vulneráveis foram as mais afetadas...</p>
+        <p>A pandemia de COVID-19 exacerbou a desigualdade social em várias partes do mundo...</p>
     </article>
     <article>
         <h3>Iniciativas para Reduzir a Desigualdade</h3>
-        <p>A desigualdade social é um dos maiores problemas que enfrentamos hoje...</p>
+        <p>Governos e organizações buscam soluções para minimizar as diferenças econômicas...</p>
     </article>
 </section>
 
 <section>
     <h2>Gráficos</h2>
     <p>Abaixo está um gráfico ilustrando a desigualdade social:</p>
-    <div class="chart-container">
-        <div id="chart_div"></div>
-        <div>
-            <h3>Explicação</h3>
-            <p>O gráfico representa a distribuição da riqueza na sociedade. Os 20% mais ricos concentram a maior parte, enquanto 50% da população vive com menos recursos...</p>
-        </div>
-    </div>
+    <div id="chart_div"></div>
 </section>
 
 <section>
     <h2>Mais artigos</h2>
     <article>
         <h3>Como a Educação Pode Reduzir a Desigualdade</h3>
-        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade social...</p>
+        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade...</p>
     </article>
     <article>
         <h3>O Papel das Políticas Públicas</h3>
-        <p>As políticas públicas desempenham um papel crucial na redução da desigualdade social...</p>
+        <p>Medidas governamentais são fundamentais para a redução das desigualdades sociais...</p>
+    </article>
+    <article>
+        <h3>Desigualdade de Gênero e Seus Efeitos</h3>
+        <p>Mulheres enfrentam barreiras significativas no acesso à educação e emprego...</p>
+    </article>
+    <article>
+        <h3>Impactos da Desigualdade na Saúde</h3>
+        <p>Falta de acesso a serviços médicos agrava problemas de saúde em comunidades carentes...</p>
+    </article>
+    <article>
+        <h3>O Crescimento Econômico e a Desigualdade</h3>
+        <p>Nem sempre o crescimento econômico resulta em uma distribuição justa de renda...</p>
+    </article>
+    <article>
+        <h3>A Tecnologia Pode Ajudar a Reduzir a Desigualdade?</h3>
+        <p>Avanços tecnológicos podem ser um caminho para oportunidades mais inclusivas...</p>
     </article>
 </section>
 
