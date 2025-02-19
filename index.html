@@ -1,174 +1,140 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desigualdade Social e Como Resolver</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lumen Impact - Jornalismo Social</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            overflow-x: hidden; /* Impede a rolagem horizontal */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
-
         header {
-            background: #333;
-            color: #fff;
-            padding: 15px 20px;
+            background: #003366;
+            color: white;
+            padding: 20px;
             text-align: center;
+            font-size: 24px;
+            font-weight: bold;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
-        .logo {
-            width: 120px;
-            margin: 10px 0;
+        .datetime {
+            font-size: 16px;
+            font-style: italic;
+            color: #ffcc00;
         }
-
-        .header-buttons {
+        .btn-ajuda {
+            background: #ffcc00;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            color: #003366;
             margin-top: 10px;
         }
-
-        .header-buttons a {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        section {
+        .content {
             padding: 20px;
-            background: #fff;
-            margin: 20px auto;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: justify;
         }
-
-        h2 {
-            color: #333;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
-            width: 100%;
-        }
-
-        .chart-container {
-            text-align: center;
+        .articles h2 {
+            color: #003366;
             margin-top: 20px;
         }
-
-        #chart_div {
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-            margin: auto;
+        footer {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
         }
-
-        p {
-            line-height: 1.6;
-            margin-bottom: 15px;
+        @media (max-width: 768px) {
+            .content {
+                padding: 15px;
+                max-width: 100%;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            .btn-ajuda {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
         }
     </style>
-
-    <!-- Carregando Google Charts -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('datetime').innerText = now.toLocaleTimeString() + ' - ' + now.toLocaleDateString();
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</head>
+<body onload="updateTime()">
+    <header>
+        <h1>Lumen Impact - O Futuro da Igualdade</h1>
+        <span id="datetime" class="datetime"></span>
+        <button class="btn-ajuda" onclick="window.location.href='https://www.exemplodeajuda.com'">Como Ajudar</button>
+    </header>
+    <div class="content">
+        <h2>"Iluminando mentes para um mundo mais justo."</h2>
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+        <div id="chart_div2" style="width: 100%; height: 500px; margin-top: 20px;"></div>
+        <div class="articles">
+            <h2>O que é desigualdade social?</h2>
+            <p>A desigualdade social é um problema global que impacta milhões de pessoas diariamente. Ela pode se manifestar de várias formas: econômica, educacional, de acesso à saúde, entre outras. Quando parte da população não tem as mesmas oportunidades que outra, cria-se um ciclo de exclusão que perpetua a pobreza e limita o desenvolvimento de uma sociedade mais justa.</p>
+            <h2>Como podemos resolver?</h2>
+            <p>O combate à desigualdade social exige um esforço coletivo entre governos, organizações e cidadãos. Algumas das principais medidas incluem a melhoria da educação, o acesso a empregos dignos, a distribuição mais equitativa de recursos e o fortalecimento de políticas públicas voltadas à inclusão social. Pequenas ações, como apoiar projetos comunitários e incentivar a equidade de oportunidades, também fazem a diferença.</p>
+            <h2>Impactos da desigualdade social</h2>
+            <p>Além das dificuldades individuais, a desigualdade social compromete o desenvolvimento econômico de um país. A falta de acesso a recursos básicos leva ao aumento da criminalidade, à redução da produtividade e a uma maior instabilidade social. Sociedades mais igualitárias tendem a ser mais prósperas, pois permitem que um maior número de pessoas contribua para o crescimento coletivo.</p>
+            <h2>Curiosidades sobre a desigualdade</h2>
+            <p>Você sabia que o 1% mais rico da população mundial detém mais riqueza do que os 50% mais pobres juntos? Esse dado impressionante reflete a concentração de renda extrema e a necessidade de medidas para reduzir esse abismo econômico.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Lumen Impact - Todos os direitos reservados</p>
+    </footer>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load("current", {packages:["corechart"]});
+    <script>
+        google.charts.load('current', {packages:['corechart']});
         google.charts.setOnLoadCallback(drawChart);
-        
+        google.charts.setOnLoadCallback(drawChart2);
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Grupo', 'Distribuição da Riqueza'],
-                ['Riqueza Alta', 20],
-                ['Riqueza Média', 30],
-                ['Riqueza Baixa', 50]
+                ['Ano', 'Índice de Desigualdade'],
+                ['2015', 45],
+                ['2016', 47],
+                ['2017', 50],
+                ['2018', 52],
+                ['2019', 54],
+                ['2020', 57]
             ]);
-
-            var options = {
-                title: 'Distribuição de Riqueza na Sociedade',
-                pieHole: 0.4,
-                colors: ['#007bff', '#ff9900', '#ff4444']
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            var options = { title: 'Evolução da Desigualdade Social', backgroundColor: '#f4f4f4' };
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        function drawChart2() {
+            var data = google.visualization.arrayToDataTable([
+                ['Região', 'Desigualdade'],
+                ['América Latina', 65],
+                ['África', 70],
+                ['Ásia', 50],
+                ['Europa', 35],
+                ['América do Norte', 40]
+            ]);
+            var options = { title: 'Desigualdade Social por Região', backgroundColor: '#f4f4f4' };
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
             chart.draw(data, options);
         }
     </script>
-</head>
-<body>
-
-<header>
-    <h1>Desigualdade Social e Como Resolver</h1>
-    <img src="logo.png" alt="Logo SENAI" class="logo">
-    <p>By: Joaquim, Micael e Dhiego</p>
-    <div class="header-buttons">
-        <a href="https://joaquimcesar98.github.io/Como-Ajudar-/">Como Ajudar?</a>
-    </div>
-</header>
-
-<section>
-    <h2>Últimas Notícias</h2>
-    <article>
-        <h3>Desigualdade Social Aumenta Durante a Pandemia</h3>
-        <p>A pandemia de COVID-19 exacerbou a desigualdade social em várias partes do mundo...</p>
-    </article>
-    <article>
-        <h3>Iniciativas para Reduzir a Desigualdade</h3>
-        <p>A desigualdade social é um dos maiores problemas que enfrentamos hoje...</p>
-    </article>
-</section>
-
-<section>
-    <h2>Gráficos</h2>
-    <p>Abaixo está um gráfico ilustrando a desigualdade social:</p>
-    <div class="chart-container">
-        <div id="chart_div"></div>
-    </div>
-</section>
-
-<section>
-    <h2>Mais artigos</h2>
-    <article>
-        <h3>Como a Educação Pode Reduzir a Desigualdade</h3>
-        <p>A educação é uma das ferramentas mais poderosas para combater a desigualdade social. Quando os governos investem em ensino de qualidade, garantem que mais pessoas tenham acesso a melhores oportunidades de emprego, reduzindo o ciclo de pobreza e promovendo a mobilidade social.</p>
-    </article>
-    <article>
-        <h3>O Papel das Políticas Públicas</h3>
-        <p>As políticas públicas desempenham um papel crucial na redução da desigualdade social. Programas de transferência de renda, investimentos em infraestrutura básica e regulamentações que favorecem a inclusão são algumas das estratégias que podem diminuir o abismo entre ricos e pobres.</p>
-    </article>
-    <article>
-        <h3>Desigualdade de Gênero e Seus Efeitos</h3>
-        <p>Mulheres em todo o mundo enfrentam barreiras significativas no acesso a oportunidades, desde salários desiguais até a falta de representação em cargos de liderança. Promover a equidade de gênero não é apenas uma questão de justiça social, mas também um fator essencial para o crescimento econômico sustentável.</p>
-    </article>
-    <article>
-        <h3>Impactos da Desigualdade na Saúde</h3>
-        <p>A desigualdade social tem um impacto direto na saúde das populações mais vulneráveis. Pessoas de baixa renda frequentemente enfrentam dificuldades para acessar serviços médicos de qualidade, o que aumenta as taxas de mortalidade, desnutrição e doenças crônicas em comunidades carentes.</p>
-    </article>
-    <article>
-        <h3>O Papel das Empresas na Redução da Desigualdade</h3>
-        <p>Empresas podem contribuir para uma sociedade mais justa ao oferecer salários justos, benefícios adequados e um ambiente de trabalho inclusivo. Além disso, iniciativas de responsabilidade social corporativa, como programas de capacitação e apoio a comunidades, ajudam a diminuir a desigualdade de forma concreta.</p>
-    </article>
-</section>
-
-<footer>
-    <p>&copy; 2025 Joaquim, Micael e Dhiego. Todos os direitos reservados.</p>
-</footer>
-
 </body>
 </html>
